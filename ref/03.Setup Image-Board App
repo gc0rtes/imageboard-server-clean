@@ -1,0 +1,67 @@
+1. Setup and Models
+2. REST
+3. Setup login system
+4. Hashing password
+5. Protecting our images
+6. Finalize login endpoint
+7. Authentication Middleware
+8. Pagination (limit the number of results)
+
+
+1) Setup Sequelize and Models
+ref.:https://reader.codaisseur.com/courses/backend-bootcamp/04-advanced-apis/01-sequelize
+
+Install sequelize, sequelize-cli and pg.
+Create a new ElephantSQL instance
+Generate Models
+
+2) REST - Register routes that access your database.
+ref:
+https://reader.codaisseur.com/courses/backend-bootcamp/04-advanced-apis/02-rest
+
+Create a new directory called routers/ and inside create 2 files, user.js and image.js.
+Inside those files:
+Import the Router class from express.
+Import the corresponding model.
+Instantiate a router.
+Register a GET / route that responds with all the images/users.
+Export the router.
+In the top-level index.js file:
+Import the ./routers/image as imageRouter and ./routers/user as userRouter.
+Register them both to their corresponding root path (/images and /users).
+
+3) Building Login system
+
+We want clients to be able to 'login'. And if they do any API requests after their login, the system should know who they are. 
+
+To do this, we use a JSON Web Token (JWT).
+
+Add the library  jsonwebtoken as a dependency to your project:
+
+$ npm install jsonwebtoken
+
+3.1) Create a user
+We need to solve a one important concern: We are storing a user with a plaintext-password! 
+Never store a password in plain text in your database.
+
+A great solution is bcrypt. 
+It's one of the most recommended algorithms by modern security experts.
+
+Bcrypt provides two functions: one to convert a password into an unreadable "hash" string, and another to check if a password matches a hash.
+
+Install bcrypt and import it in router/user.js 
+
+$ npm install bcrypt
+
+
+6)Authentication Middleware
+
+
+http -v get :4000/images Authorization:"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTYyMTY5ODEwMiwiZXhwIjoxNjIxNzA1MzAyfQ.b8p0lpFWqTIUNTG0WSOALfsr5t1HcBkVqU4yuxbl_6E"
+
+
+
+
+
+
+

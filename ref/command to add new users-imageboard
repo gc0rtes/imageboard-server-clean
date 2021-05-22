@@ -1,0 +1,9 @@
+http -v POST :4000/users email=gui@gui.com password=123 fullName="Guilherme Cortes"
+
+http -v POST :4000/users email=jesus@nazare.com password=123 fullName="Jesus de Nazare"
+
+http -v POST :4000/users email=alice@maravilha.com password=123 fullName="Alice Maravilha"
+
+http -v POST :4000/users email=bob@marley.com password=123 fullName="Bob Rasta Marley"
+
+
