@@ -12,10 +12,12 @@ async function auth(req, res, next) {
     // 2. if authorization header is there, auth type is Bearer and we have something at auth[1] we proceed to check the token.
 
     try {
+      //try to decode the token
       const data = toData(auth[1]);
+      console.log("what is data?", data); //{ userId: 1} it returns the user!
 
       // 3. Use the value returned from "toData()" to look for that user in your database with User.findByPk
-      const user = await User.findByPk(data.userId);
+      const user = await User.findByPk(data.userId); // data.userId returns a number id
 
       // 4. If not found, set status to 404 "no user found";
       if (!user) {

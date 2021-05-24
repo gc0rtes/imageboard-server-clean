@@ -30,6 +30,7 @@ router.post("/login", async (req, res, next) => {
           email: email,
         },
       });
+      // I have a user
       if (!user) {
         res.status(400).send({
           message: "User with that email does not exist",

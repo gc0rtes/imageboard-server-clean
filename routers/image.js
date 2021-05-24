@@ -18,7 +18,10 @@ router.get("/", async (req, res, next) => {
   const limit = Math.min(req.query.limit || 25, 500); //indicates how many results are on a page. Prevent hack attack
   const offset = req.query.offset || 0; //determines how many results to skip
   try {
-    console.log("**From imageRouter: I got a request for the image list");
+    console.log(
+      "**From imageRouter throught middleWare: Who's making this request?request.user = ",
+      req.user
+    );
     const result = await Image.findAndCountAll({ limit, offset }); //'findAndCountAll' to know what the total number of results is
     res.send({ images: result.rows, total: result.count });
   } catch (e) {
